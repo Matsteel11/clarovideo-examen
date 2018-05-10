@@ -2,12 +2,13 @@ import React, { Component } from "react";
 import Group from '../group/group';
 
 function Groups(props) {
+    debugger;
     return (
         <div className="container">
             <div className="infinite">
                 <div className="row">
                     {
-                        props.data.map((group) => {
+                        props.data.groups.map((group) => {
                             return <Group key={group.id} {...group} />
                         })
                     }
@@ -15,7 +16,6 @@ function Groups(props) {
             </div>
         </div>
     )
-
 }
 
 export default Groups;

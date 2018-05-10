@@ -8,8 +8,13 @@ function Group(props) {
                 <div className="d-flex flex-row">
                     <div className="p-2">
                         <div className="item-wraper">
-                            <img className="img" src={props.image_small} alt="" />
-                            <p>{props.title}</p>
+                            <a>
+                                <img className="img" src={props.image_small} alt="" />
+                                <p>{props.title}</p>
+                                <span className="play">
+                                    <i className="far fa-play-circle"></i>
+                                </span>
+                            </a>
                         </div>
                     </div>
                 </div>

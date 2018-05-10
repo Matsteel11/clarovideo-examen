@@ -1,11 +1,28 @@
+// Dependencias
 import React from 'react'
 import { render } from "react-dom";
-import { get } from './services/api.service'
-import Home from './pages/home/home'
+
+// Services
+//import { BrowserRouter as Router } from 'react-router-dom';
+import { get } from './services/api.service';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+//Routes
+import AppRoutes from './routes';
+
+// Components
+import Home from './pages/home/home';
+import Detail from "./pages/detail/detail";
 
 const home = document.getElementById('home');
-var t = get().then((respuesta) => {
-    console.log(respuesta)
-    render(<Home data={respuesta}/>, home);
-});
+
+render(
+    <Router>
+        <Switch>
+            <Route path="/" component={Home} />
+            <Route path="/detail" component={Detail} />
+        </Switch>
+    </Router>
+    , home);
+
 

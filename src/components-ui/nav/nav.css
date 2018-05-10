@@ -1,0 +1,52 @@
+@media (min-width: 768px){
+    .navMenu--global {
+        width: 100%;
+        margin: 0 auto;
+        height: auto;
+        background: rgba(0,0,0,.6);
+    }
+}
+
+.navMenu--global {
+    background: 0 0;
+    border-bottom: 1px solid rgba(128,128,128,.25);
+}
+
+@media (min-width: 768px){
+    .navLogo {
+        padding: 15px;
+        width: 225px;
+        float: left;
+    }
+}
+
+.nav_user {
+    top: 5px!important;
+    margin-right: 15px;
+}
+
+.nav_user {
+    position: relative;
+}
+
+.menuvisible {
+    opacity: 1;
+}
+
+@media (min-width: 768px){
+    .navMenu--user {
+        padding: 15px 0;
+        float: right;
+        position: absolute!important;
+        z-index: 100!important;
+        top: 0;
+        right: 0;
+        width: 550px!important;
+    }
+}
+
+@media (max-width: 1366px){
+    .nav_user {
+        top: 5px!important;
+    }
+}
