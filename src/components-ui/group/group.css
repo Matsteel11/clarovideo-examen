@@ -1,0 +1,26 @@
+.img{
+    width: 100%;}
+
+.post{
+    float: left;
+    margin: 0px 0px 15px 15px;
+    width: 300px;
+    cursor: pointer;
+}
+
+.jcarousel-item{
+    clear: both;
+    position: relative;
+}
+
+.item-wrapper {
+    display: table;
+    position: relative;
+}
+
+@media (min-width: 768px){
+    .col-sm-12 .item-wrapper {
+        width: 290px;
+        height: 163px;
+    }
+}
