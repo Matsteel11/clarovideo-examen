@@ -94,5 +94,5 @@ Matías Ponce
 
 
 ## Licencia
-Este proyecto está bajo la licencia MIT - Para ver más detalles [LICENSE.md](LICENSE.md)
+Este proyecto está bajo la licencia MIT - Para ver más detalles [LICENSE.md](LICENSE)
 
