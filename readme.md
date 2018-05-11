@@ -16,72 +16,83 @@ Este proyecto contiene el código fuente para la aplicación realizada con React
 
 ### Instalación
 
-A step by step series of examples that tell you have to get a development env running
+Para correr en el ambiente de desarrollo:
 
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
+1. Correr el commando
 
 ```
-until finished
+npm run build:local
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
+2. Una vez terminado, se crea una carpeta 'dist' donde vienen los assets y los scripts
+que genera el webpack. Luego cambiar el nombre del script que se encuenta en ./index.html
+que apunta a localhost:9000
 
 ```
-Give an example
+  <script src="http://localhost:9000/js/home.js"></script>
 ```
-
-### And coding style tests
-
-Explain what these tests test and why
+3. para correr en ambiente de desarrollo:
 
 ```
-Give an example
+npm run build:dev
 ```
 
-## Deployment
+NOTA: estos comandos se encuentan en el archivo package.json
 
-Add additional notes about how to deploy this on a live system
+```
+ "scripts": {
+    "build:dev": "webpack-dev-server --config ./webpack.dev.config.js",
+    "build": "webpack",
+    "build:local": "webpack --env.NODE_ENV=local",
+    "build:prod": "webpack -p --env.NODE_ENV=production"
+  }
+```
 
-## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+## Deployment Firebase
 
-## Contributing
+Para poder publicar la aplicación con Firebase, es necesario tener instalado el paquete  Firebase Tools
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+```
+npm install -g firebase-tools
+```
 
-## Versioning
+1. Iniciar una instancia de Firebase
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+```
+firebase init
+```
 
-## Authors
+2. Proyecto el host remoto en donde se va a publicar la aplicación.
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+3. Elegir la carpeta que se va a publicar.
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+```
+    dist (para este caso)
+```
 
-## License
+4. Cuando pregunte si se sobre escribe la página index.html, decir que no.
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+```
 
-## Acknowledgments
+ What do you want to use as your public directory? dist
+ Configure as a single-page app (rewrite all urls to /index.html)? (y/N) N
 
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
+```
+
+
+5. Una vez terminada la configuración. Correr el commando deploy para publicar
+
+```
+firebase deploy
+
+```
+
+
+## Autor 
+Matías Ponce
+
+
+## Licencia
+Este proyecto está bajo la licencia MIT - Para ver más detalles [LICENSE.md](LICENSE.md)
+
