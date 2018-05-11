@@ -1,20 +1,20 @@
-# Project Title
+# AMCO Examen
 
-One Paragraph of project description goes here
+Realización de las pantallas de Presentación de Películas y en un modal con su vista de detalle.
 
-## Getting Started
+## Cómo correr el proyecto
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Este proyecto contiene el código fuente para la aplicación realizada con React que es examen de AMCO
 
-### Prerequisites
+### Requisitos
 
-What things you need to install the software and how to install them
+1. Tener intalado node js
 
-```
-Give examples
-```
+2. Administrador de paquetes NPM 5.0.6
 
-### Installing
+3. Para el deploy, tener instalado
+
+### Instalación
 
 A step by step series of examples that tell you have to get a development env running
 
