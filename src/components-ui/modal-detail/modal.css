@@ -1,0 +1,12 @@
+.modal-content{
+    background-color: black;
+}
+
+.img-responsive{
+    width: 100%;
+    display: block;
+}
+
+h1{
+    color: #ecaf2a;
+}

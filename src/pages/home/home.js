@@ -1,51 +1,67 @@
+// Dependencias
 import React, { Component } from 'react';
+
+
+//Components
 import Groups from '../../components-ui/groups/groups';
-import Nav from '../../components-ui/nav/nav'
-import { get } from "../../services/api.service";
+import Nav from '../../components-ui/nav/nav';
+
+// Services
+import { get, getPelicula } from "../../services/api.service";
+
+//Styles.
 import './home.css';
+
 
 class Home extends Component {
 
     constructor(props) {
         super(props);
-        debugger;
-
+        this.groups = [];
         this.state = {
-            groups: []
+            groups: [],
+            selectedGroup: {}
         }
         //this.state = props.data.response.groups;
+        
     }
 
-    componentWillMount(){
+    componentWillMount() {
         var t = get().then((respuesta) => {
-            console.log(respuesta);
+            this.groups = respuesta.response.groups;
             this.setState({
-                groups: respuesta.response.groups
+                groups: this.groups
             })
         });
     }
 
-    
-      
-        
-    
-
-
     handleSearch = (event, data) => {
-        debugger;
-        console.log(event);
-        console.log(data);
         this.setState({
             groups: this.filtrarPeliculas(event.target.value)
         });
     }
 
+    handleCLick = (group) => {
+
+        console.log(group.id);
+
+        var response = getPelicula(group.id)
+        .then(result => {
+            this.setState({
+                selectedGroup: result.response.group
+            }, function () {
+                $(".modal").modal('show');
+            });
+        })
+
+        
+    }
+
     render() {
-        debugger;
         return (
             <div className="content_div">
                 <Nav onSearch={this.handleSearch} data={this.state.groups} />
-                <Groups data={this.state} />
+                <Groups onClick={this.handleCLick} selectedGroup={this.state.selectedGroup}  data={this.state} />
             </div>
         )
     }
@@ -148,15 +164,14 @@ class Home extends Component {
     }
 
     filtrarPeliculas(palabraBuscar) {
-        debugger;
         if (palabraBuscar === "")
-            return this.props.data.response.groups;
+            return this.groups;
 
         let group = [];
 
         let palabra = this.removeDiacritics(palabraBuscar.toLowerCase());
 
-        for (let item of this.props.data.response.groups) {
+        for (let item of this.groups) {
             let nombrePelicula = this.removeDiacritics(item.title.toLowerCase());
 
             if (nombrePelicula.indexOf(palabra) > -1)
